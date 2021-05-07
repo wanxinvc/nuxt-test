@@ -28,12 +28,25 @@
       </p>
       <p>
         Some links to get you started regarding the API:
+        <ul>
+          <li>Example <a target="_blank" href="http://api.openweathermap.org/data/2.5/weather?q=Basel&appid=3978da9f7417a95247e8f31df0cf1f27">API response</a></li>
+          <li>API <a target="_blank" href="https://openweathermap.org/current">endpoint documentation</a></li>
+          <li>Weather <a target="_blank" href="https://openweathermap.org/weather-conditions">condition icons</a></li>
+        </ul>
       </p>
-      <ul>
-        <li>Example <a target="_blank" href="http://api.openweathermap.org/data/2.5/weather?q=Basel&appid=3978da9f7417a95247e8f31df0cf1f27">API response</a></li>
-        <li>API <a target="_blank" href="https://openweathermap.org/current">endpoint documentation</a></li>
-        <li>Weather <a target="_blank" href="https://openweathermap.org/weather-conditions">condition icons</a></li>
-      </ul>
+
+      <h2>Bonus Tasks</h2>
+      <p>
+        <ol>
+          <li>
+            API error handling: use the included <a target="_blank" href="https://github.com/shakee93/vue-toasted">vue-toasted</a>
+            to show a toast notification if the API call fails (available as <code>this.$toast</code>).
+          </li>
+          <li>
+            Move all weather data into a <a target="_blank" href="https://nuxtjs.org/docs/2.x/directory-structure/store">separate store module</a>.
+          </li>
+        </ol>
+      </p>
     </div>
   </div>
 </template>
@@ -58,18 +71,30 @@ export default {
 
 <style lang="scss" scoped>
 h1 {
-  @apply text-xl font-bold pt-4 pb-12;
+  @apply text-2xl font-bold pt-4 pb-8;
+}
+
+h2 {
+  @apply text-lg text-gray-700 font-bold pt-4 pb-4;
 }
 
 p {
-  @apply max-w-4xl pb-8;
+  @apply max-w-4xl pb-4;
 }
 
 ul {
   @apply list-disc ml-4;
 }
 
+ol {
+  @apply list-decimal ml-4;
+}
+
 a {
   @apply text-blue-800;
+}
+
+code {
+  @apply font-mono text-xs bg-gray-700 text-gray-100 p-0.5 rounded;
 }
 </style>

@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  @apply flex flex-col justify-center min-h-screen;
+  @apply flex flex-col pt-20 justify-center min-h-screen;
 }
 
 .wrapper {

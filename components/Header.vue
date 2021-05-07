@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  @apply bg-yellow-300;
+  @apply fixed top-0 left-0 w-screen h-20 bg-yellow-300 bg-opacity-95 shadow-md;
 
   &-inner {
     @apply w-full max-w-screen-lg flex-grow pl-4 m-auto;
