@@ -1,53 +1,48 @@
-/**
- * global application state properties, also see other stores for state submodules
+import axios from 'axios'
+
+/*
+ * Config for the OpenWeather API
+ * @see https://openweathermap.org/
  */
+const weatherApiKey = '3978da9f7417a95247e8f31df0cf1f27'
+const weatherApiBaselUrl = `http://api.openweathermap.org/data/2.5/weather?appid=${weatherApiKey}`
 
 export const state = () => ({
-  // true if any Solr docs query is in progress
-  loading: false,
-
-  // true if any Solr facets query is in progress
-  loadingFacets: false,
-
-  // debug mode for local development
-  debug: true,
-
-  // last Solr query times
-  QTime: {
-    docs: 0,
-    facets: 0
-  }
+  loading: true, // app starts in loading mode
+  currentWeather: {}
 })
 
 export const getters = {
-  isLoading: state => state.loading && state.loading === true,
-  isLoadingFacets: state => state.loadingFacets && state.loadingFacets === true
+  isLoading: state => state.loading && state.loading === true
 }
 
 export const mutations = {
-  START_REQUEST: (state) => {
+  START_LOADING: (state) => {
     state.loading = true
   },
 
-  END_REQUEST: (state) => {
+  END_LOADING: (state) => {
     state.loading = false
-  },
-
-  START_FACET_REQUEST: (state) => {
-    state.loadingFacets = true
-  },
-
-  END_FACET_REQUEST: (state) => {
-    state.loadingFacets = false
-  },
-
-  RECEIVE_DOCS_QTIME: (state, QTime) => {
-    state.QTime.docs = QTime
-  },
-
-  RECEIVE_FACETS_QTIME: (state, QTime) => {
-    state.QTime.facets = QTime
   }
 }
 
-export const actions = {}
+export const actions = {
+  getWeather ({ commit }) {
+    commit('START_LOADING')
+
+    return new Promise((resolve, reject) => {
+      // todo - pull weather data for Basel
+      const url = weatherApiBaselUrl
+      axios.get(url)
+        .then((response) => {
+          resolve(response)
+        })
+        .catch((error) => {
+          reject(error)
+        })
+        .finally(
+          commit('END_LOADING')
+        )
+    })
+  }
+}

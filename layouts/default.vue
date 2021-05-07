@@ -5,20 +5,23 @@
       <div class="wrapper">
         <Nuxt />
       </div>
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
 import Header from '~/components/Header'
+import Footer from '~/components/Footer'
+
 export default {
-  components: { Header }
+  components: { Footer, Header }
 }
 </script>
 
 <style lang="scss" scoped>
 .main {
-  @apply flex flex-col justify-center align-middle min-h-screen;
+  @apply flex flex-col justify-center min-h-screen;
 }
 
 .wrapper {
