@@ -14,18 +14,15 @@
         display on the website (the company is located in Basel, Switzerland).
       </p>
       <p>
-        The  and weather data should be pulled for this location for now.
         A colleague from the IT department has already kindly prepared the API configuration in the store module of
-        the web application. However, he did not have time to finish the work before holiday.
+        the web application. However, he did not have time to finish the work before holiday. You are now asked to
+        complete the colleagues' task. In particular, the store action needs to be called, data comited to the
+        application state and bind the state to the UI. As for displaying the current weather conditions in the UI,
+        the designer has not given any particular instructions (you are free to design it). However, it would be nice
+        to have icons to depict the current weather conditions.
       </p>
       <p>
-        You are now asked to complete the colleagues' task. In particular, the store action needs to be called, data
-        comited to the application state and bind the state to the UI. As for displaying the current weather conditions
-        in the UI, the designer has not given any particular instructions. However, it would be nice to have symbols
-        depict the current weather conditions.
-      </p>
-      <p>
-        The Software Architect has given three key guidance: he wants to keep the application modular and thus work
+        The Software Architect has given three key advices: he wants to keep the application modular and thus work
         with components. He also insists on using proper state management with Vuex. As for styling the application,
         we should use tailwindCSS as much as possible so that we can update the corporate design system anytime.
       </p>
