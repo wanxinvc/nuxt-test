@@ -28,11 +28,11 @@ A colleague from the IT department has already kindly prepared the API configura
 application. However, he did not have time to finish the work before holiday. You are now asked to complete the
 colleague's task. In particular, the store action needs to be finished and called, data committed to the application
 state and bind the state to the UI. As for displaying the current weather conditions in the UI, the designer has not
-given any particular instructions (you are free to design it). However, the throught it would be nice to have an icon
+given any particular instructions (you are free to design it). However, he thought that it would be nice to have an icon
 to depict the current weather condition.
 
-The Software Architect has given three key advices: he wants to keep the application modular and thus work with
-components. He also insists on using proper state management with Vuex. As for styling the application, we should
+The company's Software Architect has given three key advices: he wants to keep the application modular and thus work
+with components. He also insists on using proper state management with Vuex. As for styling the application, we should
 use tailwindCSS as much as possible so that we can update the corporate design system anytime.
 
 Some links to get you started with the API (OpenWeatherMap):
