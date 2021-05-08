@@ -21,15 +21,15 @@ web app running on [http://localhost:3000](http://localhost:3000). Available tai
 ### Tasks 
 
 The manager of the company thinks that the website homepage is boring. Because he likes golfing in his free time, the
-designer has suggested to connect the frontend to a weather API and pull the current weather to display on the website
-(the company is located in Basel, Switzerland).
+designer has suggested connecting the frontend to a weather API and pull the current weather from an API and to display
+current general weather condition and temperature on the website (the company is located in Basel, Switzerland).
 
 A colleague from the IT department has already kindly prepared the API configuration in the store module of the web
 application. However, he did not have time to finish the work before holiday. You are now asked to complete the
-colleague's task. In particular, the store action needs to be called, data comited to the application state and bind
-the state to the UI. As for displaying the current weather conditions in the UI, the designer has not given any
-particular instructions (you are free to design it). However, it would be nice to have icons to depict the current
-weather conditions.
+colleague's task. In particular, the store action needs to be finished and called, data committed to the application
+state and bind the state to the UI. As for displaying the current weather conditions in the UI, the designer has not
+given any particular instructions (you are free to design it). However, the throught it would be nice to have an icon
+to depict the current weather condition.
 
 The Software Architect has given three key advices: he wants to keep the application modular and thus work with
 components. He also insists on using proper state management with Vuex. As for styling the application, we should
@@ -43,6 +43,8 @@ Some links to get you started with the API (OpenWeatherMap):
 
 #### Bonus Tasks
 
-1. API error handling: use the included ```vue-toasted``` to show a toast notification if the API call fails (available
+- API error handling: use the included ```vue-toasted``` to show a toast notification if the API call fails (available
    as ```this.$toast```).
-1. Move all weather state data and related methods into a separate store module ```weather.js```.
+- Move all weather state data and related methods into a separate store module ```weather.js``` (namespaced store).
+- Store the weather data into local storage to reduce initial page load time (retrieve data from local storage on
+  opening the web application and async overwrite with the latest data from the API).
