@@ -47,7 +47,7 @@
             (<a target="_blank" href="https://nuxtjs.org/docs/2.x/directory-structure/store">namespaced store</a>).
           </li>
           <li>
-            Store the weather data into local storage to reduce initial page load time (retrieve data from local storage on
+            Store the weather data into a cookie to reduce initial page load time (retrieve data from cookie on
             opening the web application and async overwrite with the latest data from the API).
           </li>
         </ol>
