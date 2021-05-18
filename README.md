@@ -46,5 +46,5 @@ Some links to get you started with the API (OpenWeatherMap):
 - API error handling: use the included ```vue-toasted``` to show a toast notification if the API call fails (available
    as ```this.$toast```).
 - Move all weather state data and related methods into a separate store module ```weather.js``` (namespaced store).
-- Store the weather data into local storage to reduce initial page load time (retrieve data from local storage on
+- Store the weather data into a cookie to reduce initial page load time (retrieve data from cookie on
   opening the web application and async overwrite with the latest data from the API).
