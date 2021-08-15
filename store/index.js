@@ -5,7 +5,8 @@ import axios from 'axios'
  * @see https://openweathermap.org/
  */
 const weatherApiKey = '3978da9f7417a95247e8f31df0cf1f27'
-const weatherApiBaselUrl = `http://api.openweathermap.org/data/2.5/weather?appid=${weatherApiKey}`
+const weatherLocation = 'Basel'
+const weatherApiBaselUrl = `http://api.openweathermap.org/data/2.5/weather?q=${weatherLocation}&appid=${weatherApiKey}&units=metric`
 
 export const state = () => ({
   loading: true, // app starts in loading mode
@@ -23,6 +24,9 @@ export const mutations = {
 
   END_LOADING: (state) => {
     state.loading = false
+  },
+  LOAD_WEATHER (state, currentWeather) {
+    state.currentWeather = currentWeather
   }
 }
 
@@ -31,10 +35,10 @@ export const actions = {
     commit('START_LOADING')
 
     return new Promise((resolve, reject) => {
-      // todo - pull weather data for Basel
       const url = weatherApiBaselUrl
       axios.get(url)
         .then((response) => {
+          commit('LOAD_WEATHER', response.data)
           resolve(response)
         })
         .catch((error) => {

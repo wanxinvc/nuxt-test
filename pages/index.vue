@@ -63,6 +63,7 @@ export default {
   layout: 'default',
   mounted () {
     this.END_LOADING()
+    this.$store.dispatch('getWeather')
   },
   methods: {
     ...mapActions({
