@@ -14,7 +14,8 @@ export const state = () => ({
 })
 
 export const getters = {
-  isLoading: state => state.loading && state.loading === true
+  isLoading: state => state.loading && state.loading === true,
+  currentWeather: state => state.currentWeather
 }
 
 export const mutations = {

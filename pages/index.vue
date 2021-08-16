@@ -52,24 +52,25 @@
           </li>
         </ol>
       </p>
+      <Weather />
     </div>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapGetters, mapActions } from 'vuex'
+import Weather from '~/components/Weather'
 
 export default {
+  components: { Weather },
   layout: 'default',
   mounted () {
     this.END_LOADING()
-    this.$store.dispatch('getWeather')
   },
   methods: {
     ...mapActions({
       ...mapGetters(['isLoading']),
-      ...mapMutations(['END_LOADING']),
-      ...mapActions(['getWeather'])
+      ...mapMutations(['END_LOADING'])
     })
   }
 }
