@@ -58,19 +58,19 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Weather from '~/components/Weather'
 
 export default {
   components: { Weather },
   layout: 'default',
   mounted () {
-    this.END_LOADING()
+    this.getWeather()
   },
   methods: {
     ...mapActions({
       ...mapGetters(['isLoading']),
-      ...mapMutations(['END_LOADING'])
+      ...mapActions(['getWeather'])
     })
   }
 }
