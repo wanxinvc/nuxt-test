@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isLoading()">
+    <div v-if="isLoading">
       Loading app...
     </div>
     <div v-else>
@@ -64,15 +64,17 @@ import Weather from '~/components/Weather'
 export default {
   components: { Weather },
   layout: 'default',
+  computed: {
+    ...mapGetters('weather', ['isLoading'])
+  },
   mounted () {
     this.getWeather()
   },
+
   methods: {
-    ...mapActions({
-      ...mapGetters(['isLoading']),
-      ...mapActions(['getWeather'])
-    })
+    ...mapActions('weather', ['getWeather'])
   }
+
 }
 </script>
 

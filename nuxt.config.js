@@ -1,7 +1,6 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server', // currently we use 'server' target as the app needs to run over Node.js with middleware proxy for Solr until Scilit.net backend has the API endpoints ready
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Nuxt Test App',
@@ -41,7 +40,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -58,7 +57,8 @@ export default {
   styleResources: {},
 
   toast: {
-    position: 'top-right' // default position for toasts
+    position: 'top-right', // default position for toasts
+    duration: 2000
   },
 
   // Nuxt router config (because we deploy the web-app into Scilit Symfony app, we can use a base routing)
@@ -68,7 +68,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    babel:{
+    babel: {
       plugins: [
         ['@babel/plugin-proposal-private-methods', { loose: true }]
       ]

@@ -13,11 +13,6 @@ export const state = () => ({
   currentWeather: {}
 })
 
-export const getters = {
-  isLoading: state => state.loading && state.loading === true,
-  currentWeather: state => state.currentWeather
-}
-
 export const mutations = {
   START_LOADING: (state) => {
     state.loading = true
@@ -31,7 +26,21 @@ export const mutations = {
   }
 }
 
+export const getters = {
+  temperature: state => Math.round(state.currentWeather?.main?.temp),
+  isLoading: state => state.loading && state.loading === true,
+  weatherInfo: state => state.currentWeather?.weather?.[0],
+  weatherData: state => state.currentWeather?.main,
+  city: state => state.currentWeather?.name
+}
+
 export const actions = {
+  nuxtServerInit ({ commit }, { req }) {
+    console.log(req)
+    if (req.cookie) {
+      console.log(req.cookie)
+    }
+  },
   getWeather ({ commit }) {
     commit('START_LOADING')
 

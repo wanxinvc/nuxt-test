@@ -1,42 +1,33 @@
 <template>
-    <div v-if="city">
-        <div class="flex">
-            <div class="weather-icon">
-                <img :src="`http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`" alt="">
-            </div>
-            <div class="weather-data">
-                <h2>{{ temperature }} <span class="deg">&deg;C</span></h2>
-                <p>
-                    {{ city }}
-                    <span class="separator">||</span>
-                    {{ weatherInfo.description }}
-                </p>
-            </div>
-        </div>
+  <div v-if="city">
+    <div class="flex">
+      <div class="weather-icon">
+        <img :src="`http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`" alt="">
+      </div>
+      <div class="weather-data">
+        <h2>{{ temperature }} <span class="deg">&deg;C</span></h2>
+        <p>
+          {{ city }}
+          <span class="separator">||</span>
+          {{ weatherInfo.description }}
+        </p>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   layout: 'default',
   computed: {
-    ...mapActions({
-      ...mapGetters(['currentWeather', 'isLoading'])
-    }),
-    weatherInfo () {
-      return this.currentWeather.weather[0]
-    },
-    weatherData () {
-      return this.currentWeather.main
-    },
-    city () {
-      return this.currentWeather.name
-    },
-    temperature () {
-      return Math.round(this.weatherData.temp)
-    }
+    ...mapGetters('weather', [
+      'weatherInfo',
+      'isLoading',
+      'city',
+      'temperature'
+    ])
   }
 }
 </script>
