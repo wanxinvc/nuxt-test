@@ -28,19 +28,14 @@ export const mutations = {
 
 export const getters = {
   temperature: state => Math.round(state.currentWeather?.main?.temp),
-  isLoading: state => state.loading && state.loading === true,
+  isLoading: state => state.loading === true && state.currentWeather?.main !== undefined,
   weatherInfo: state => state.currentWeather?.weather?.[0],
   weatherData: state => state.currentWeather?.main,
   city: state => state.currentWeather?.name
 }
 
 export const actions = {
-  nuxtServerInit ({ commit }, { req }) {
-    console.log(req)
-    if (req.cookie) {
-      console.log(req.cookie)
-    }
-  },
+
   getWeather ({ commit }) {
     commit('START_LOADING')
 
@@ -50,9 +45,10 @@ export const actions = {
         .then((response) => {
           commit('LOAD_WEATHER', response.data)
           resolve(response)
-          this.$toast.show('123123')
+          this.$cookies.set('weather', JSON.stringify(response.data))
         })
         .catch((error) => {
+          this.$toast.show(error.message || 'Request failed. Try refreshing.')
           reject(error)
         })
         .finally(

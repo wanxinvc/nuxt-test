@@ -70,7 +70,6 @@ export default {
   mounted () {
     this.getWeather()
   },
-
   methods: {
     ...mapActions('weather', ['getWeather'])
   }

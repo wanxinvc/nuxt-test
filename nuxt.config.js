@@ -48,7 +48,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    'cookie-universal-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -57,8 +58,8 @@ export default {
   styleResources: {},
 
   toast: {
-    position: 'top-right', // default position for toasts
-    duration: 2000
+    position: 'top-center', // default position for toasts
+    duration: 2500
   },
 
   // Nuxt router config (because we deploy the web-app into Scilit Symfony app, we can use a base routing)

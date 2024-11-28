@@ -24,7 +24,6 @@ export default {
   computed: {
     ...mapGetters('weather', [
       'weatherInfo',
-      'isLoading',
       'city',
       'temperature'
     ])
